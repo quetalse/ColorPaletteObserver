@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		.observer-container{
+			width: 100%;
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			background: whitesmoke; 
+		}
+
+		.color-generator{
+			font-family: monospace;
+		}
+
+		.color-generator .color-generator__title{
+			font-size: 32px;
+			    text-align: center;
+		}
+
+		.color-generator .color-generator__entry{
+			width: 100px;
+			height: 100px;
+			text-align: center;
+		}
+
+		.color-generator .color-generator__entry input{
+			appearance: none;
+			-moz-appearance: none;
+			-webkit-appearance: none;
+			background: none;
+			cursor: pointer;
+			border: 0;
+			border-radius: 50%;
+			padding: 0;
+			width: 100%;
+			height: 100%;
+		  	animation: pulse 1s infinite;	
+
+		}
+
+		.color-generator .color-generator__entry input::-webkit-color-swatch {
+		  border: none;
+		  border-radius: 50%;
+		  padding: 0;
+		}
+
+		
+		@-webkit-keyframes pulse {
+			  0% {
+			    -webkit-box-shadow: 0 0 0 0 rgba(185,178,178, 0.9);
+			  }
+			  70% {
+			      -webkit-box-shadow: 0 0 0 14px rgba(185,178,178, 0);
+			  }
+			  100% {
+			      -webkit-box-shadow: 0 0 0 0 rgba(185,178,178, 0);
+			}
+		}
+
+
+		.color-generator__output{
+			display: flex;
+			justify-content: space-around;
+			width: 100%;
+			/*margin-top: 20px;*/
+			margin-top:auto;
+		}
+
+
+		.output__elem{
+			width: 20vw;
+			height: 20vw;			
+			border-radius: 50%;
+			background: rgba(185,178,178);
+			animation-duration: 2s;
+        	animation-iteration-count: infinite;
+
+        	animation-name: bounce-6;
+        	animation-timing-function: ease;
+		}
+
+		.output__elem-first{
+			animation-delay: 1s;
+		}
+
+		.output__elem-second{
+			animation-delay: 1.2s;
+		}
+
+		.output__elem-third{
+			animation-delay: 1.4s;
+		}
+
+		 @keyframes bounce-6 {
+	        0%   { transform: scale(1,1)      translateY(0); }
+	        10%  { transform: scale(1.1,.9)   translateY(0); }
+	        30%  { transform: scale(.9,1.1)   translateY(-70px); }
+	        50%  { transform: scale(1.05,.95) translateY(0); }
+	        57%  { transform: scale(1,1)      translateY(0px); }
+	        64%  { transform: scale(1,1)      translateY(0); }
+	        100% { transform: scale(1,1)      translateY(-6px); }
+    	}
+
+	</style>
+</head>
+<body>
+	<main class="observer-container color-generator" >
+		<h1 class="color-generator__title">Pick color</h1>
+		<div class="color-generator__entry color-picker">
+			<input type="color" class="color-picker__input">
+			<h2	class="color-picker__title">
+		</div>
+		<div class="color-generator__output output">
+			<div class="output__elem output__elem-first"></div>
+			<div class="output__elem output__elem-second"></div>
+			<div class="output__elem output__elem-third"></div>
+		</div>
+	</main>
+	
+	<script src="./js/script.js"></script>
+</body>
+</html>
